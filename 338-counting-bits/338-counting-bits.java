@@ -4,6 +4,7 @@ class Solution {
         for(int i=0;i<output.length;i++){
             //output[i]=output[i>>1]+i%2;
             output[i]=output[i/2]+i%2;
+            // both are correct
         }
         return output;
     }
