@@ -28,7 +28,9 @@ class Solution {
         if((l==null && r!=null) || (l!=null && r==null)){
             return false;
         }
-        
-        return ((l.val==r.val) && isSym(l.left,r.right) && isSym(l.right,r.left));
+        if(l.val!=r.val){
+            return false;
+        }
+        return (isSym(l.left,r.right) && isSym(l.right,r.left));
     }
 }
