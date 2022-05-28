@@ -27,7 +27,7 @@ class Solution {
     }
     public int ht(TreeNode root){
         if(root==null){
-            return -1;
+            return 0;
         }
         int lh=ht(root.left);
         int rh=ht(root.right);
