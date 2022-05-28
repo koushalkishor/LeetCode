@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    public boolean isBalanced(TreeNode root) {
+   public boolean isBalanced(TreeNode root) {
         //one approach
         if(root==null){
             return true;
@@ -33,8 +33,5 @@ class Solution {
         int rh=ht(root.right);
         return Math.max(lh,rh)+1;
     }
-        
-        
-        
+   }
     
-}
