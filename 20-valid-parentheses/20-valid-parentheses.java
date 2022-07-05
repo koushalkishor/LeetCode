@@ -1,14 +1,16 @@
 class Solution {
-    public boolean isValid(String str) {
+    public boolean isValid(String s) {
         Stack<Character> stack=new Stack<>();
-        for(int i=0;i<str.length();i++){
-            char ch=str.charAt(i);
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
             if(isOpening(ch)){
                 stack.push(ch);
-            }else{
+            }
+            else{
                 if(stack.isEmpty()){
                     return false;
-                }else if(!isBalamced(stack.peek(),ch)){
+                }
+                else if(!isBalanced(stack.peek(),ch)){
                     return false;
                 }
                 else{
@@ -18,18 +20,16 @@ class Solution {
         }
         return stack.isEmpty();
     }
-//
-    private boolean isBalamced(Character peek, char ch) {
-        if((peek=='(' && ch==')') || (peek=='{' && ch=='}') || (peek=='[' && ch==']')){
+    public static boolean isOpening(char c){
+        if(c=='(' || c=='{' || c=='['){
             return true;
         }
         return false;
     }
-
-    private boolean isOpening(char ch) {
-        if(ch=='(' || ch=='{' || ch=='['){
+    public static boolean isBalanced(char peek,char ch){
+         if((peek=='(' && ch==')') || (peek=='{' && ch=='}') || (peek=='[' && ch==']')){
             return true;
         }
         return false;
     }
-    }
+}
