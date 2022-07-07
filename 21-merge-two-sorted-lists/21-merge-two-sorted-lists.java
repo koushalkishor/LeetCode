@@ -18,10 +18,10 @@ class Solution {
                 list1=list1.next;
             }
             else{
-                 current.next=list2;
+                current.next=list2;
                 list2=list2.next;
             }
-             current=current.next;
+            current=current.next;
         }
         if(list1!=null){
             current.next=list1;
@@ -30,9 +30,6 @@ class Solution {
             current.next=list2;
             list2=list2.next;
         }
-        
         return temp.next;
     }
-    
-    
 }
