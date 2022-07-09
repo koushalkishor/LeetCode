@@ -10,25 +10,39 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        Stack<Integer> stack=new Stack<Integer>();
+        if(head==null ){
+            return true;
+        }
+        ListNode temp=head;
+        ListNode middle=middlelist(head);
+        ListNode reverse=reverseList(middle);
+        while(reverse!=null){
+            if(temp.val!=reverse.val){
+                return false;
+            }
+            temp=temp.next;
+            reverse=reverse.next;
+            
+        }
+        return true;
+    }
+    public ListNode reverseList(ListNode head) {
+        if(head==null || head.next==null){
+            return head;
+        }
+        ListNode newHead=reverseList(head.next);
+        ListNode headnext=head.next;
+        headnext.next=head;
+        head.next=null;
+        return newHead;
+    }
+    public static ListNode middlelist(ListNode head){
         ListNode slow=head;
-        boolean plaindrome=false;
-        while(slow!=null){
-            stack.push(slow.val);
+        ListNode fast=head;
+        while(fast!=null && fast.next!=null){
             slow=slow.next;
+            fast=fast.next.next;
         }
-        
-        while(head!=null){
-            int i=stack.pop();
-            if(head.val==i){
-                head=head.next;
-                plaindrome= true;
-            }
-            else{
-                plaindrome= false;
-                break;
-            }
-        }
-        return plaindrome;
+        return slow;
     }
 }
